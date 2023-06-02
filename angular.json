@@ -93,6 +93,39 @@
           }
         }
       }
+    },
+    "ank-demo": {
+      "projectType": "library",
+      "root": "projects/ank-demo",
+      "sourceRoot": "projects/ank-demo/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ank-demo/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ank-demo/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ank-demo/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/ank-demo/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
     }
   }
 }
